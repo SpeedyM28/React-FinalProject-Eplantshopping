@@ -1,9 +1,11 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+import addItem from './CartSlice';
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
+    const [addedToCart, setAddedToCart] = useState({});
 
     const plantsArray = [
         {
@@ -242,10 +244,19 @@ const handlePlantsClick = (e) => {
     setShowCart(false); // Hide the cart when navigating to About Us
 };
 
-   const handleContinueShopping = (e) => {
+const handleContinueShopping = (e) => {
     e.preventDefault();
     setShowCart(false);
-  };
+};
+
+const handleAddToCart = (plant) => {
+    dispatchEvent(addItem(plant));
+    setAddedToCart((prevState) => ({
+        ...prevState,
+        [product.name]: true,
+    }));
+};
+
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -278,6 +289,7 @@ const handlePlantsClick = (e) => {
                                 <img className="product-image" src={plantobj.image} alt={plantobj.name}/>
                                 <div>Description: {plantobj.description}</div>
                                 <div className="product-price">Cost: {plantobj.cost}</div>
+                                <button className="product-button" onClick={() => handleAddToCart(plantobj)}>Add to Cart</button>
                             </div>
                         ))}
                     </div>
