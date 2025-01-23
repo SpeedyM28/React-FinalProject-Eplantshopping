@@ -7,7 +7,6 @@ export const CartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-        console.log("entered addItem");
         const { name, image, cost } = action.payload;
         const existingItem = state.items.find(item => item.name === name);
         if(existingItem){
@@ -15,7 +14,6 @@ export const CartSlice = createSlice({
         }else{
             state.items.push({name,image,cost,quantity:1});
         }
-        console.log("item was added");
     },
     removeItem: (state, action) => {
         state.items = state.items.filter(item => item.name !== action.payload);
