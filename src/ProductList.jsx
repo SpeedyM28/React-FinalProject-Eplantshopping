@@ -250,10 +250,11 @@ const handleContinueShopping = (e) => {
 };
 
 const handleAddToCart = (plant) => {
+    console.log("handleAddtoCart");
     dispatchEvent(addItem(plant));
     setAddedToCart((prevState) => ({
         ...prevState,
-        [product.name]: true,
+        [plant.name]: true,
     }));
 };
 
