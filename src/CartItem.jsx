@@ -10,11 +10,16 @@ const CartItem = ({ onContinueShopping }) => {
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
     var total = 0;
+    console.log("this is total"+total);
+    console.log(cart[0]);
     cart.filter(item => item.quantity > 0).forEach((item, index) => {
-        total+= item.cost*item.quantity;
+        total= total +  item.cost*item.quantity;
     });
     return total;
   };
+  //problem with calculateTotalAmount, cost is a string with $ at the front of it
+  //cannot be processed as a integer, use string manipulation then return the 
+  //answer as a integer, the "$" is already in the html
 
   const handleContinueShopping = (e) => {
     e.preventDefault();
