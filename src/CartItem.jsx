@@ -20,9 +20,6 @@ const CartItem = ({ onContinueShopping }) => {
     });
     return total;
   };
-  //problem with calculateTotalAmount, cost is a string with $ at the front of it
-  //cannot be processed as a integer, use string manipulation then return the 
-  //answer as a integer, the "$" is already in the html
 
   const handleContinueShopping = (e) => {
     e.preventDefault();
