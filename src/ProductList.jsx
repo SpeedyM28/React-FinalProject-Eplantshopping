@@ -253,9 +253,9 @@ const handleContinueShopping = (e) => {
 };
 
 const handleAddToCart = (plant) => {
-    console.log("handleAddtoCart");
+    //console.log("handleAddtoCart");
     dispatch(addItem(plant));
-    console.log("done dispatchingevent");
+    //console.log("done dispatchingevent");
     setAddedToCart((prevState) => ({
         ...prevState,
         [plant.name]: true,
