@@ -22,8 +22,8 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleContinueShopping = (e) => {
-    e.preventDefault();
-    setShowCart(false);
+    console.log("entered cartitem handlecontinueshopping");
+    onContinueShopping(e);
   };
 
   const handleCheckoutShopping = (e) => {
