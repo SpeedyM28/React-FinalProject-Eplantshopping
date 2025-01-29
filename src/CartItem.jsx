@@ -31,18 +31,22 @@ const CartItem = ({ onContinueShopping }) => {
   }
 
   const handleIncrement = (item) => {
-    console.log(item);
+    //console.log(item);
     var itemcopy = structuredClone(item);
     itemcopy.quantity++;
-    console.log(itemcopy);
+    //console.log(itemcopy);
     dispatch(updateQuantity(itemcopy));
-    console.log("done incrementing");
+    //console.log("done incrementing");
   };
 
   const handleDecrement = (item) => {
-    console.log(item);
-    item.quantity--;
-    dispatch(updateQuantity(item));
+    //console.log(item);
+    if(item.quantity == 0){
+        return
+    }
+    var itemcopy = structuredClone(item);
+    itemcopy.quantity--;
+    dispatch(updateQuantity(itemcopy));
   };
 
   const handleRemove = (item) => {
