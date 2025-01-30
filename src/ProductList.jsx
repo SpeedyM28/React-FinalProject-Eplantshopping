@@ -14,6 +14,8 @@ function ProductList() {
         setTotalQuantity(prevValue => prevValue + number);
     }
 
+    //Project Complete, if you wish, adjust counter position within cart icon
+
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -308,7 +310,7 @@ const handleAddToCart = (plant) => {
 
         </div>
  ) :  (
-    <CartItem onUpdate={updateTotalQuantity} onContinueShopping={handleContinueShopping}/>
+    <CartItem onContinueShopping={handleContinueShopping} onUpdate={updateTotalQuantity}/>
 )}
     </div>
     );
